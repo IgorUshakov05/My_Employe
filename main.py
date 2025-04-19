@@ -22,7 +22,7 @@ class Person(Base):
     passport_number = Column(String)
     address = Column(String)
     positions = relationship("Position", back_populates="person", cascade="all, delete")
-
+# Схема компании
 class Company(Base):
     __tablename__ = 'companies'
     id = Column(Integer, primary_key=True)
@@ -205,7 +205,7 @@ class EmployeeWindow(QWidget):
             QMessageBox.warning(self, "Ошибка", "Выберите сотрудника.")
             return None
         return [self.table.item(row, i).text() for i in range(7)]
-
+# Редактирование сотрудника
     def edit_employee(self):
         old = self.get_selected_data()
         if not old:
